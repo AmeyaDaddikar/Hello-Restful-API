@@ -28,7 +28,7 @@ ajaxHandler.paths.hello = (data, res) => {
 
 // 404 handler
 ajaxHandler.NOT_FOUND = (data, res) => {
-  callback(404, {}, res);
+  callback(404, { error : 'path not found'}, res);
 };
 
 ajaxHandler.handle = function (data, res) {
