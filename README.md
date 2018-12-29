@@ -1,6 +1,6 @@
 # Hello-Restful-API
 
-## Home Assignment #1 (Pirple's NodeJS Masterclass)
+## Home Assignment #1 ([Pirple's NodeJS Masterclass](https://pirple.thinkific.com/))
 
 This is my submission project for the first assignment for the NodeJS masterclass.
 
