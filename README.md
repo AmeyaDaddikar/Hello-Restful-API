@@ -16,9 +16,11 @@ This is my submission project for the first assignment for the NodeJS masterclas
 ![Screenshot 2](./screenshots/screenshot_2.png)
 
 ##### P.S.
-To get the translator feature to work, add the in the file ./config/private.json (The site still works without the translator, and just returns the message in English.)
+To get the translator feature to work, add the following in the file ./config/private.json (The site still works without the translator, and just returns the message in English.)
 
 ```json
-"yandex_api_key" : "_your_api_key_"
+{
+  "yandex_api_key" : "_your_api_key_" 
+}
 ```
 
