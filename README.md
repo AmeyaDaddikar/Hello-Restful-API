@@ -11,8 +11,8 @@ This is my submission project for the first assignment for the NodeJS masterclas
 4. https POST request made to [Yandex Translation API](https://tech.yandex.com/translate/) using the default NodeJS https module
 5. Every time you request /hello, it randomizes the message shown. If /hello?lang= is specified, then the Yandex API will translate it to that language.
 
-![Screenshot 1](./screenshots/Screenshot\2018-12-29\at\9.41.12 PM.png)
-![Screenshot 2](./screenshots/Screenshot\2018-12-29\at\9.41.12 PM.png)
+![Screenshot 1](./screenshots/screenshot_1.png)
+![Screenshot 2](./screenshots/screenshot_2.png)
 
 
 ### Things to improve
