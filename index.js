@@ -24,4 +24,15 @@ app.httpServer.listen(config.httpPort, () => {
   console.log(`HTTP : Listening to port ${config.httpPort}`);
 });
 
-// TODO add https support
+// checks if key and certificate has been set for https
+if (typeof(config.httpsOptions) === 'undefined')
+  return;
+
+//https setup and initialization
+app.httpsServer = https.createServer(config.httpsOptions, (req, res) => {
+  ajaxServer(req, res);
+});
+
+app.httpsServer.listen(config.httpsPort, () => {
+  console.log(`HTTPS : Listening to port ${config.httpsPort}`);
+});

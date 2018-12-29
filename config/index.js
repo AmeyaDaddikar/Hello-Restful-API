@@ -38,4 +38,16 @@ try{
   console.log('Unable to read private.json.\nThe Translation feature is disabled.');
 }
 
+// https server key setup
+try{
+  httpsOptions = {
+    key  : fs.readFileSync('./config/key.pem', {encoding:'utf-8', flag:'r'}),
+    cert : fs.readFileSync('./config/cert.pem', {encoding:'utf-8', flag:'r'}),
+  };
+  currConfig.httpsOptions = httpsOptions;
+
+} catch(err){
+  console.log('Unable to set key and ceritificate for HTTPS');
+}
+
 module.exports = currConfig;
