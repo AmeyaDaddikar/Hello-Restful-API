@@ -22,12 +22,22 @@ let ajaxHandler = {
 };
 
 // /hello path handler
-ajaxHandler.paths.hello = (data, res) => {
+ajaxHandler.paths['hello'] = (data, res) => {
   callback(200, {response : 'Hello'}, res);
 }
 
+ajaxHandler.paths[''] = (data, res) => {
+  let myInfo = {
+    name  : 'Ameya Daddikar',
+    alias : 'coldball',
+    country: 'India',
+    curr_employment: 'student'
+  };
+  callback(200, myInfo, res);
+}
+
 // 404 handler
-ajaxHandler.NOT_FOUND = (data, res) => {
+ajaxHandler['NOT_FOUND'] = (data, res) => {
   callback(404, { error : 'path not found'}, res);
 };
 
