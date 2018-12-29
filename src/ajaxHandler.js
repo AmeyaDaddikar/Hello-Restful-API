@@ -5,16 +5,10 @@
  * 
 */
 
-const defaultGreetings = [
-  'Hello, my name is Ameya. Nice to meet you!',
-  'Hi, I am Ameya Daddikar. Nice to meet you.',
-  'Hey! This is Ameya. Thanks for checking my repo.',
-  'Hi! I am Ameya. Thanks for checking my repo. You can follow me on Github ; )',
-  'Hello, I am Ameya and welcome to my autogenerating '
-];
+const messageGenerator = require('./messageGenerator');
 
 // helper function: used by all paths to generate their HTTP/HTTPS response
-const callback = function (statusCode = 500, payload = {}, res) {
+const callback = function (res, statusCode = 500, payload = {}) {
 
   const responseString = JSON.stringify(payload);
 
@@ -30,7 +24,14 @@ let ajaxHandler = {
 
 // /hello path handler
 ajaxHandler.paths['hello'] = (data, res) => {
-  callback(200, {response : 'Hello'}, res);
+
+  let lang = 'hi';
+
+  if (typeof(data.query) !== 'undefined')
+    if (typeof(data.query.lang) !== 'undefined')
+      lang = data.query.lang;
+
+    messageGenerator.generate(lang, callback, res);  
 }
 
 ajaxHandler.paths[''] = (data, res) => {
@@ -42,16 +43,16 @@ ajaxHandler.paths[''] = (data, res) => {
     about_repo: {
       type : 'home assignment',
       course: 'Pirple\'s NodeJS Master Class',
-      routes: ['/', '/hello'],
+      routes: ['/', '/hello', '/hello?lang=${en/ru/hi/.....}'],
       features: ['HTTP and HTTPS support'],
     }
   };
-  callback(200, myInfo, res);
+  callback(res, 200, myInfo);
 }
 
 // 404 handler
 ajaxHandler['NOT_FOUND'] = (data, res) => {
-  callback(404, { error : 'route not found'}, res);
+  callback(res, 404);
 };
 
 ajaxHandler.handle = function (data, res) {

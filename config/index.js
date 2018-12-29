@@ -5,6 +5,8 @@
  * 
 */
 
+const fs = require('fs');
+
 let config = {};
 
 config.debug = {
@@ -22,5 +24,18 @@ let currConfig = config[process.env.NODE_ENV];
 
 if (typeof(currConfig) === 'undefined')
   currConfig = config.debug;
+
+try{
+  // trying to read config/private.json file
+  const private_config = JSON.parse(
+    fs.readFileSync('./config/private.json', {encoding:'utf-8', flag:'r'})
+  );
+
+  // https://tech.yandex.com/translate/
+  currConfig.translate_key = private_config.yandex_api_key;
+
+} catch(err){
+  console.log('Unable to read private.json.\nThe Translation feature is disabled.');
+}
 
 module.exports = currConfig;
