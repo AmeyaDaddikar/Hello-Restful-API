@@ -28,11 +28,8 @@ const defaultGreetings = [
 
 let messageGenerator = {};
 
-messageGenerator.generate = function (lang, callback, res) {
+messageGenerator.generate = function (lang, resolve, reject) {
   
-  const responseCallback = function (data) {
-    callback(res, 200, data);
-  }
   const randomMessage = defaultGreetings[Math.floor(
     Math.random() * defaultGreetings.length
     )];
@@ -40,7 +37,7 @@ messageGenerator.generate = function (lang, callback, res) {
   const defaultMessage = {message : randomMessage, lang};
 
   if (typeof(config.translate_key) === 'undefined')
-  responseCallback(defaultMessage);
+  resolve(defaultMessage);
 
 
   const postData = querystring.stringify({
@@ -69,14 +66,14 @@ messageGenerator.generate = function (lang, callback, res) {
     res.on('end', ()=> {
       let message = JSON.parse(response_buffer);
 
-      responseCallback({lang, message: response_buffer});
+      resolve({lang, message: response_buffer});
     })
   });
 
   req.on('error', (err) => {
 
     console.log('HTTPS request to Yandex failed.', err);
-    responseCallback({});
+    reject({});
   });
 
   req.write(postData);

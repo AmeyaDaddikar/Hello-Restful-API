@@ -30,8 +30,19 @@ ajaxHandler.paths['hello'] = (data, res) => {
   if (typeof(data.query) !== 'undefined')
     if (typeof(data.query.lang) !== 'undefined')
       lang = data.query.lang;
+  
+  const messageGeneratorPromise = new Promise((resolve, reject) => {
+    messageGenerator.generate(lang, resolve);
+  });
 
-    messageGenerator.generate(lang, callback, res);  
+  messageGeneratorPromise.then((message) => {
+    callback(res, 200, message);
+  });
+
+  messageGeneratorPromise.catch((err) => {
+    callback(res, 500);
+  });
+
 }
 
 ajaxHandler.paths[''] = (data, res) => {
