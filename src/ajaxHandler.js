@@ -23,7 +23,7 @@ let ajaxHandler = {
 };
 
 // /hello path handler
-ajaxHandler.paths['hello'] = (data, res) => {
+ajaxHandler.paths['hello'] = (data, callback) => {
   //default language, Hindi
   let lang = 'hi';
 
@@ -39,17 +39,17 @@ ajaxHandler.paths['hello'] = (data, res) => {
 
   // Success in message generation
   messageGeneratorPromise.then((message) => {
-    callback(res, 200, message);
+    callback({ code: 200, payload: message });
   });
 
   // Internal Server Error
   messageGeneratorPromise.catch((err) => {
-    callback(res, 500);
+    callback({ code: 500 });
   });
 
 }
 
-ajaxHandler.paths[''] = (data, res) => {
+ajaxHandler.paths[''] = (data, callback) => {
   let myInfo = {
     name  : 'Ameya Daddikar',
     alias : 'coldball',
@@ -62,12 +62,12 @@ ajaxHandler.paths[''] = (data, res) => {
       features: ['HTTP and HTTPS support'],
     }
   };
-  callback(res, 200, myInfo);
+  callback({ code: 200, payload: myInfo });
 }
 
 // 404 handler
-ajaxHandler['NOT_FOUND'] = (data, res) => {
-  callback(res, 404);
+ajaxHandler['NOT_FOUND'] = (data, callback) => {
+  callback({ code: 404 });
 };
 
 ajaxHandler.handle = function (data, res) {
@@ -78,7 +78,36 @@ ajaxHandler.handle = function (data, res) {
   if (typeof(pathHandler) === 'undefined')
     pathHandler = this.NOT_FOUND;
   
-  pathHandler(data, res);
+  // A promise that gets the response from handler and accordingly calls callback
+  // created so that there is no need to pass the res obj to handlers
+  const pathHandlerPromise = new Promise((resolve, reject) => {
+    pathHandler(data, resolve, reject);
+  });
+
+  // called once the handler resolves/handles the request
+  pathHandlerPromise.then((handlerResponse) => {
+
+    res.setHeader('Content-Type', 'application/json');
+    res.writeHead(handlerResponse.code);
+
+    let responseString;
+    if (typeof(handlerResponse.payload) !== 'undefined'){
+      responseString = JSON.stringify(handlerResponse.payload);
+    }
+
+    res.end(responseString);
+
+  });
+
+  // unused since reject not passed in the handler
+  // Handlers internally handle any 500 errors
+  // can be used in future as a dedicated error handling
+  pathHandlerPromise.catch(() => {
+    res.writeHead(500);
+    res.end();
+  });
+
+
 };
 
 module.exports = ajaxHandler;
