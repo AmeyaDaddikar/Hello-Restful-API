@@ -7,16 +7,6 @@
 
 const messageGenerator = require('./messageGenerator');
 
-// helper function: used by all paths to generate their HTTP/HTTPS response
-const callback = function (res, statusCode = 500, payload = {}) {
-
-  const responseString = JSON.stringify(payload);
-
-  res.setHeader('Content-Type', 'application/json');
-  res.writeHead(statusCode);
-  res.end(responseString);
-
-}
 
 let ajaxHandler = {
   paths : {},
