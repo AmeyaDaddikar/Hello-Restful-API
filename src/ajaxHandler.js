@@ -58,12 +58,18 @@ ajaxHandler.paths[''] = (data, callback) => {
     about_repo: {
       type : 'home assignment',
       course: 'Pirple\'s NodeJS Master Class',
-      routes: ['/', '/hello', '/hello?lang=${en/ru/hi/.....}'],
+      routes: ['/', '/hello', '/hello?lang=${en/ru/hi/.....}', '/ping'],
       features: ['HTTP and HTTPS support'],
     }
   };
   callback({ code: 200, payload: myInfo });
 }
+
+// ping
+ajaxHandler.paths['ping'] = (data, callback) => {
+  callback({ code: 200 });
+};
+
 
 // 404 handler
 ajaxHandler['NOT_FOUND'] = (data, callback) => {
