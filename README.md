@@ -11,6 +11,7 @@ This is my submission project for the first assignment for the NodeJS masterclas
 4. https POST request made to [Yandex Translation API](https://tech.yandex.com/translate/) using the default NodeJS https module
 5. Every time you request /hello, it randomizes the message shown. If /hello?lang= is specified, then the Yandex API will translate it to that language.
 6. Solved a previous code-structure issue by using the [Promise object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to handle Async requests made to a third party.
+7. Replaced the callback() mechanism with a pathHandlerPromise object. This ensures that res object need not be passed to handlers and the callback code can be handled by the Promse itself.
 
 ![Screenshot 1](./screenshots/screenshot_1.png)
 ![Screenshot 2](./screenshots/screenshot_2.png)
