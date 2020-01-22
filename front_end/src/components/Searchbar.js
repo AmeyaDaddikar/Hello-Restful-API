@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Input, message} from 'antd';
 
 import {requestTranslation} from '../Networking';
@@ -31,6 +31,8 @@ export default function Searchbar() {
 
   let [translatedText, setTranslatedText] = useState('');
 
+
+
   const onSearch = (value) => {
 
     requestTranslation(value)
@@ -40,6 +42,9 @@ export default function Searchbar() {
     }))
     .catch(y => message.error('There was an error contacting the server.'))
   }
+
+  useEffect(() => onSearch('Hello'), [])
+
 
   return(
     <div style={styles.container}>
