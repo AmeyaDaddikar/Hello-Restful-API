@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.d498bfb3.chunk.css",
-    "main.js": "/static/js/main.c553c21d.chunk.js",
-    "main.js.map": "/static/js/main.c553c21d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.5eceaaa3.js",
-    "runtime-main.js.map": "/static/js/runtime-main.5eceaaa3.js.map",
-    "static/css/2.ff8bd605.chunk.css": "/static/css/2.ff8bd605.chunk.css",
-    "static/js/2.9fe72e0e.chunk.js": "/static/js/2.9fe72e0e.chunk.js",
-    "static/js/2.9fe72e0e.chunk.js.map": "/static/js/2.9fe72e0e.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.6db1ff3530475ddfe3884f6c430efbc3.js": "/precache-manifest.6db1ff3530475ddfe3884f6c430efbc3.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.ff8bd605.chunk.css.map": "/static/css/2.ff8bd605.chunk.css.map",
-    "static/css/main.d498bfb3.chunk.css.map": "/static/css/main.d498bfb3.chunk.css.map",
-    "static/js/2.9fe72e0e.chunk.js.LICENSE": "/static/js/2.9fe72e0e.chunk.js.LICENSE",
-    "static/media/translator.png": "/static/media/translator.aafd8235.png"
+    "main.css": "/AmeyaDaddikar/Hello-Restful-API/static/css/main.d498bfb3.chunk.css",
+    "main.js": "/AmeyaDaddikar/Hello-Restful-API/static/js/main.cd147cbd.chunk.js",
+    "main.js.map": "/AmeyaDaddikar/Hello-Restful-API/static/js/main.cd147cbd.chunk.js.map",
+    "runtime-main.js": "/AmeyaDaddikar/Hello-Restful-API/static/js/runtime-main.0ae5d47b.js",
+    "runtime-main.js.map": "/AmeyaDaddikar/Hello-Restful-API/static/js/runtime-main.0ae5d47b.js.map",
+    "static/css/2.ff8bd605.chunk.css": "/AmeyaDaddikar/Hello-Restful-API/static/css/2.ff8bd605.chunk.css",
+    "static/js/2.ba1474ca.chunk.js": "/AmeyaDaddikar/Hello-Restful-API/static/js/2.ba1474ca.chunk.js",
+    "static/js/2.ba1474ca.chunk.js.map": "/AmeyaDaddikar/Hello-Restful-API/static/js/2.ba1474ca.chunk.js.map",
+    "index.html": "/AmeyaDaddikar/Hello-Restful-API/index.html",
+    "precache-manifest.b1e9140267b195523b2a119609636d21.js": "/AmeyaDaddikar/Hello-Restful-API/precache-manifest.b1e9140267b195523b2a119609636d21.js",
+    "service-worker.js": "/AmeyaDaddikar/Hello-Restful-API/service-worker.js",
+    "static/css/2.ff8bd605.chunk.css.map": "/AmeyaDaddikar/Hello-Restful-API/static/css/2.ff8bd605.chunk.css.map",
+    "static/css/main.d498bfb3.chunk.css.map": "/AmeyaDaddikar/Hello-Restful-API/static/css/main.d498bfb3.chunk.css.map",
+    "static/js/2.ba1474ca.chunk.js.LICENSE": "/AmeyaDaddikar/Hello-Restful-API/static/js/2.ba1474ca.chunk.js.LICENSE",
+    "static/media/translator.png": "/AmeyaDaddikar/Hello-Restful-API/static/media/translator.aafd8235.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.5eceaaa3.js",
+    "static/js/runtime-main.0ae5d47b.js",
     "static/css/2.ff8bd605.chunk.css",
-    "static/js/2.9fe72e0e.chunk.js",
+    "static/js/2.ba1474ca.chunk.js",
     "static/css/main.d498bfb3.chunk.css",
-    "static/js/main.c553c21d.chunk.js"
+    "static/js/main.cd147cbd.chunk.js"
   ]
 }

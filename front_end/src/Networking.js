@@ -1,6 +1,6 @@
 function requestTranslation(input) {
 
-  return fetch(`/hello?inputMessage=${input}`, {
+  return fetch(`https://ameyadaddikar.github.io/Hello-Restful-API/hello?inputMessage=${input}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
