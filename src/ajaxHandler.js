@@ -86,7 +86,7 @@ ajaxHandler.handle = function (data, res) {
   pathHandlerPromise.then((handlerResponse) => {
 
     res.setHeader('Content-Type', 'application/json');
-    res.setHeader("Access-Control-Allow-Origin", "ameyadaddikar.github.io");
+    res.setHeader("Access-Control-Allow-Origin", "https://ameyadaddikar.github.io");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.writeHead(handlerResponse.code);
 
