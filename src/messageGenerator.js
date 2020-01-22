@@ -30,12 +30,15 @@ const defaultGreetings = [
 
 let messageGenerator = {};
 
-messageGenerator.generate = function (lang, resolve, reject) {
+messageGenerator.generate = function (lang, inputMessage, resolve, reject) {
   
   //selects a random message
-  const randomMessage = defaultGreetings[Math.floor(
-    Math.random() * defaultGreetings.length
-    )];
+  let randomMessage = inputMessage
+
+  if (randomMessage === undefined)
+    randomMessage = defaultGreetings[Math.floor(
+      Math.random() * defaultGreetings.length
+      )];
   
   //default message, in case translation fails or lang isn't set
   const defaultMessage = {message : randomMessage, lang};
@@ -75,7 +78,7 @@ messageGenerator.generate = function (lang, resolve, reject) {
       // converting string to JSON
       let message = JSON.parse(response_buffer);
 
-      resolve({lang, message: response_buffer});
+      resolve({lang, message: message});
     })
   });
 

@@ -22,9 +22,11 @@ ajaxHandler.paths['hello'] = (data, callback) => {
     if (typeof(data.query.lang) !== 'undefined')
       lang = data.query.lang;
   
+  const inputMessage = data.query.inputMessage;
+  
   //A Promise to call the callback function once the appropriate message is generated
   const messageGeneratorPromise = new Promise((resolve, reject) => {
-    messageGenerator.generate(lang, resolve);
+    messageGenerator.generate(lang, inputMessage, resolve);
   });
 
   // Success in message generation

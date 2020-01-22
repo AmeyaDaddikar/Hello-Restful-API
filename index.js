@@ -20,10 +20,11 @@ app.httpServer = http.createServer((req, res)=> {
 });
 
 // initialize http
-app.httpServer.listen(config.httpPort, () => {
-  console.log(`HTTP : Listening to port ${config.httpPort}`);
+app.httpServer.listen(process.env.PORT || 80, () => {
+  console.log(`HTTP : Listening to port ${process.env.PORT || 80}`);
 });
 
+/*
 // checks if key and certificate has been set for https
 if (typeof(config.httpsOptions) === 'undefined')
   return;
@@ -36,3 +37,4 @@ app.httpsServer = https.createServer(config.httpsOptions, (req, res) => {
 app.httpsServer.listen(config.httpsPort, () => {
   console.log(`HTTPS : Listening to port ${config.httpsPort}`);
 });
+*/
